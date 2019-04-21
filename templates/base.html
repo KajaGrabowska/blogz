@@ -2,8 +2,28 @@
 <html>
     <head>
         <title>Build a Blog</title>
+        <style type="text/css">
+            nav {
+                display: inline-flex;            
+            }
+            .error {
+                color: red;
+            }
+        </style>
     </head>
 <body>
+    <nav>
+        <h2><a href="/blog">Main Blog Page</a></h2> 
+        <h2><a href="/newpost">Add a Blog Entry</a></h2>
+    </nav>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 
     {% block content %}
     {% endblock %}

@@ -4,8 +4,15 @@
     <h1>Add a Blog Entry</h1>
     
     <form action="/newpost" method='post'/>
-        <p><label>Title for your new blog:<br><input type="text" name="title"/>{{ title }}</label></p>
-        <p><label>Your new blog:<br><textarea name="body"></textarea></label></p>
+        <p><label>Title for your new blog:<br><input type="text" name="title" value="{{title}}"/></label></p>
+        {% if title_error %}
+            <span class='error'>{{ title_error }}</span>
+            {% endif %}
+        <p><label>Your new blog:<br><textarea name="body" value="{{body}}"></textarea></label></p>
+        {% if body_error %}
+            <span class='error'>{{ body_error }}</span>
+            {% endif %}
+            <input type="hidden" name="id" value="{{ id }}"/>    
         <p><input type="submit" value="Add Entry"/></p>
     </form>
 
