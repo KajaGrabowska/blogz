@@ -52,14 +52,6 @@ def newpost():
             return render_template('newpost.html', title_error=title_error, body_error=body_error, title=title, body=body)
 
 
-
-@app.route('/post')
-def display_post():
-    return render_template("post.html")
-
-
-
-
 @app.route('/blog')
 def blog():
     blog_posts = Blog.query.all()
@@ -70,7 +62,6 @@ def blog():
     if post_id != None:
         return render_template("post.html", blog=blog)
     else:
-    #completed_tasks = Task.query.filter_by(completed=True).all()
         return render_template('blog.html', blog_posts = blog_posts)
 
 
