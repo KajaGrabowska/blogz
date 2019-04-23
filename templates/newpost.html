@@ -8,7 +8,7 @@
         {% if title_error %}
             <span class='error'>{{ title_error }}</span>
             {% endif %}
-        <p><label>Your new blog:<br><textarea name="body" value="{{body}}"></textarea></label></p>
+        <p><label>Your new blog:<br><textarea name="body" value="{{body}}">{{body}}</textarea></label></p>
         {% if body_error %}
             <span class='error'>{{ body_error }}</span>
             {% endif %}
