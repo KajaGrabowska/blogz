@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>Build a Blog</title>
+        <title>Blogz</title>
         <style type="text/css">
             nav {
                 display: block;            
@@ -13,9 +13,25 @@
     </head>
 <body>
     <nav>
-        <h2><a href="/blog">Main Blog Page</a></h2> 
-        <h2><a href="/newpost">Add a Blog Entry</a></h2>
+        <h2><a href="/blog">All Posts</a></h2> 
+        <h2><a href="/newpost">New Post</a></h2>
+        <h2><a href="/">Home</a></h2>
     </nav>
+
+    <div>
+        <a href='/login'>Login</a>
+    </div>
+    <div>
+        <a href='/logout'>Log Out</a>
+    </div>
+   
+    {% with messages = get_flashed_messages(with_categories=True) %}
+            <ul>
+            {% for category, message in messages %}
+                <li class="{{category}}">{{message}}</li>
+            {% endfor %}
+            </ul>
+    {% endwith %}
 
     {% block content %}
     {% endblock %}

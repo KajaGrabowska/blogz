@@ -3,7 +3,7 @@
 {% block content %}
 
 
-<h1>Build a Blog</h1>
+<h1>Blog Posts!</h1>
     
 {% for post in blog_posts %}
 <p><a href="./blog?id={{post.id}}">{{post.title}}</a><br>{{post.body}}</p>
