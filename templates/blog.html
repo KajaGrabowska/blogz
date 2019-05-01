@@ -5,8 +5,9 @@
 
 <h1>Blog Posts!</h1>
     
-{% for post in blog_posts %}
-<p><a href="./blog?id={{post.id}}">{{post.title}}</a><br>{{post.body}}</p>
+{% for blog in blog_posts %}
+<p><a href="./blog?id={{blog.id}}">{{blog.title}}</a><br>{{blog.body}}</p>
+<p>Written by <a href="./blog?user={{blog.owner.id}}">{{blog.owner.username}}</a></p>
 
 {% endfor %}
 

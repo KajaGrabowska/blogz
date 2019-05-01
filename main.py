@@ -108,7 +108,7 @@ def newpost():
         title = request.form['title']
         body = request.form['body']
         owner = User.query.filter_by(username=session['username']).first()
-
+        user_id = request.args.get('user')
 
         title_error = request.args.get("title_error")
         body_error = request.args.get("body_error")
@@ -127,7 +127,8 @@ def newpost():
             db.session.add(new_post)
             db.session.commit()
             blog = Blog.query.filter_by(id=new_post.id).first()
-            return render_template("post.html", blog=blog)
+            user = User.query.filter_by(id = user_id).first()
+            return render_template("post.html", blog=blog, user=user)
         
         else:
             return render_template('newpost.html', title_error=title_error, body_error=body_error, title=title, body=body)
@@ -137,13 +138,19 @@ def newpost():
 def blog():
     blog_posts = Blog.query.all()
     
+    #query_param = "?user=userId"
     
+    user_id = request.args.get('user')
     post_id = request.args.get('id')
     blog = Blog.query.filter_by(id = post_id).first()
-    if post_id != None:
-        return render_template("post.html", blog=blog)
+    user_posts = Blog.query.filter_by(owner_id = user_id).all()
+    user = User.query.filter_by(id = user_id).first()
+    if post_id:
+        return render_template("post.html", blog=blog, user=user)
+    if user_id:
+        return render_template("user_page.html", user_posts=user_posts, blog=blog, user=user)    
     else:
-        return render_template('blog.html', blog_posts = blog_posts)
+        return render_template('blog.html', blog_posts = blog_posts, user=user, blog=blog)
 
 
 @app.route('/')

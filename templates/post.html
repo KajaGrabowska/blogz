@@ -5,7 +5,8 @@
         {% if blog %}
             <h2>{{blog.title}}</h2>
             <p>{{blog.body}}</p>
+            <p>Written by <a href="./blog?user={{blog.owner.id}}">{{blog.owner.username}}</a><p>
         {% endif %}
-   
+        
 
 {% endblock %}

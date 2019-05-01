@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Blogz</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <style type="text/css">
             nav {
                 display: block;            
@@ -12,6 +13,7 @@
         </style>
     </head>
 <body>
+    
     <nav>
         <h2><a href="/blog">All Posts</a></h2> 
         <h2><a href="/newpost">New Post</a></h2>
@@ -28,7 +30,7 @@
     {% with messages = get_flashed_messages(with_categories=True) %}
             <ul>
             {% for category, message in messages %}
-                <li class="{{category}}">{{message}}</li>
+                <li class=error>{{message}}</li>
             {% endfor %}
             </ul>
     {% endwith %}
