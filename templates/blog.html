@@ -3,13 +3,14 @@
 {% block content %}
 
 
-<h1>Blog Posts!</h1>
-    
-{% for blog in blog_posts %}
-<p><a href="./blog?id={{blog.id}}">{{blog.title}}</a><br>{{blog.body}}</p>
-<p>Written by <a href="./blog?user={{blog.owner.id}}">{{blog.owner.username}}</a></p>
+<h2>Blog Posts!</h2>
+<div class="post2">   
+    {% for blog in blog_posts %}
+    <p><a href="./blog?id={{blog.id}}">{{blog.title}}</a><br>{{blog.body}}</p>
+    <p class="tag">Written by <a href="./blog?user={{blog.owner.id}}">{{blog.owner.username}}</a></p>
+    <br>
 
 {% endfor %}
-
+</div>
 
 {% endblock %}

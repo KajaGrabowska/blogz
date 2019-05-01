@@ -49,16 +49,15 @@ def login():
         username = request.form['username']
         password = request.form['password']
         user = User.query.filter_by(username=username).first()
-        if user and password:
+        if user and user.password == password:
             session['username'] = username
             return redirect('/newpost')
-        if user and not password:
+        if user and user.password != password:
             flash("Incorrect password")
             return redirect('/login')
-        if not username:
+        if not user:
             flash("Username does not exist")
             return redirect('/login')
-
 
 @app.route('/logout')
 def logout():

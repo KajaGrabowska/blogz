@@ -3,13 +3,16 @@
 {% block content %}
 
 
-<h1>Blog Posts!</h1>
+<h2>Blog Posts!</h2>
 
+<div class="post2">
 {% if user_posts %}
     {% for blog in user_posts %}
     <p><a href="./blog?id={{blog.id}}">{{blog.title}}</a><br>{{blog.body}}</p>
-    <p>Written by <a href="./blog?user={{user.id}}">{{user.username}}</a><p></p>
+    <p class="tag">Written by <a href="./blog?user={{user.id}}">{{user.username}}</a></p>
+    <br>
     {% endfor %}
 {% endif %}
+</div>
 
 {% endblock %}

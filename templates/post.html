@@ -3,9 +3,13 @@
 {% block content %}
     
         {% if blog %}
-            <h2>{{blog.title}}</h2>
-            <p>{{blog.body}}</p>
-            <p>Written by <a href="./blog?user={{blog.owner.id}}">{{blog.owner.username}}</a><p>
+            <div class="post">
+                <h2 class="title">{{blog.title}}</h2>
+                <br>
+                <p class="blog">{{blog.body}}</p>
+                <br>
+                <p class="tag">Written by <a href="./blog?user={{blog.owner.id}}">{{blog.owner.username}}</a><p>
+            </div>
         {% endif %}
         
 

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Login</h1>
+<h2>Login</h2>
 <form action="/login" method="post">
     <table>
         <tr>
@@ -19,5 +19,6 @@
     </table>
     <input type="submit" value="Submit">
 </form>
+<br>
 <p>Don't have an account? <a href="/signup">Create one!</a></p>
 {% endblock %}
