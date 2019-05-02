@@ -137,8 +137,6 @@ def newpost():
 def blog():
     blog_posts = Blog.query.all()
     
-    #query_param = "?user=userId"
-    
     user_id = request.args.get('user')
     post_id = request.args.get('id')
     blog = Blog.query.filter_by(id = post_id).first()
